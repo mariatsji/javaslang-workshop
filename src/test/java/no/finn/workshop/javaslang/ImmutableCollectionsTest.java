@@ -2,23 +2,41 @@ package no.finn.workshop.javaslang;
 
 import java.util.Arrays;
 
-import javaslang.Function1;
 import javaslang.collection.List;
-import javaslang.collection.Traversable;
+import no.finn.workshop.javaslang.things.Age;
 import org.junit.Test;
+
+import static no.finn.workshop.javaslang.LambdaAssert.assertThatEquals;
+import static no.finn.workshop.javaslang.LambdaAssert.assertTrue;
 
 public class ImmutableCollectionsTest {
 
-
     @Test
     public void should_create_javaslang_list_from_list() {
-        List<Integer> transformed = ImmutableCollections.transform(Arrays.asList(1, 2, 3, 4));
-        assertThat(transformed, list -> list != null, "transform should return a javaslang List");
-        assertThat(transformed, Traversable::nonEmpty, "transform should return a non-empty javaslang List");
-        assertThat(transformed, list -> list.equals(List.of(1, 2, 3, 4)), "transform should return a javaslang List containing 1,2,3,4");
+        java.util.List<Integer> rawList = Arrays.asList(1, 2, 3, 4);
+        List<Integer> result = ImmutableCollections.createFrom(rawList);
+        assertTrue(result, l -> l != null && l.nonEmpty(), "createFrom should return a nonempty javaslang List");
+        assertThatEquals(
+                rawList,
+                ImmutableCollections::createFrom,
+                List.of(1,2,3,4),
+                "createFrom should return a javaslang List containing 1,2,3,4"
+        );
+
     }
 
-    static <X> void assertThat(X x, Function1<X, Boolean> assertion, String errorMsg) {
-        assert assertion.apply(x) : errorMsg;
+    @Test
+    public void should_map_all_integers_to_age_in_a_list() {
+        List<Integer> rawList = List.of(18, 20, 37);
+        List<Age> result = ImmutableCollections.transfomElements(rawList);
+        assertTrue(result, l -> l != null && l.nonEmpty(), "transformElements should create a List<Age> from List<Integer>");
+        assertThatEquals(
+                rawList,
+                ImmutableCollections::transfomElements,
+                List.of(new Age(18), new Age(20), new Age(37)),
+                "transformElements should create List<Age> where each Age match the original Integer"
+        );
     }
+
+
 }
