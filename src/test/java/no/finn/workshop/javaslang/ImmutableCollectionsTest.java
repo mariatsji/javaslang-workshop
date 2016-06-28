@@ -38,5 +38,13 @@ public class ImmutableCollectionsTest {
         );
     }
 
+    @Test
+    public void should_check_that_list_of_strings_with_different_caseing_corresponds() {
+        List<String> first = List.of("a", "b", "C", "D");
+        List<String> second = List.of("A", "B", "c", "d");
+        assertTrue(ImmutableCollections.checkSameStringsIgnoreCase(first, second), b -> b, "checkSameStringsIgnoreCase should return true when" +
+                "two lists contain equal Strings whith casing ignored");
+    }
+
 
 }

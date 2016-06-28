@@ -15,6 +15,11 @@ public class ImmutableCollections {
         return list.map(Age::new);
     }
 
+    //use the corresponds-method to check that two lists contain the same String when ignoring case
+    public static Boolean checkSameStringsIgnoreCase(List<String> first, List<String> second) {
+        return first.corresponds(second, String::equalsIgnoreCase);
+    }
+    
     //
 
     //Tuple
