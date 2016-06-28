@@ -1,6 +1,7 @@
 package no.finn.workshop.javaslang;
 
 import javaslang.Function1;
+import javaslang.Function2;
 
 public class LambdaAssert {
 
@@ -10,9 +11,9 @@ public class LambdaAssert {
         assert assertion.apply(parameter) : errorMsg;
     }
 
-    public static <X,Y> void assertThatEquals(X parameter, Function1<X, Y> theFunctionTested, Y expectedResult, String errorMsg) {
-        assert theFunctionTested.apply(parameter).equals(expectedResult) : String.format("[%s] : " + NEWLINE +
+    public static <X> void assertEquality(X expected, X actual, Function2<X,X,Boolean> equalityPredicate, String errorMsg) {
+        assert equalityPredicate.apply(expected, actual) : String.format("[%s] : " + NEWLINE +
                 "expected  : [%s]" + NEWLINE +
-                "but found : [%s]", errorMsg, expectedResult, theFunctionTested.apply(parameter));
+                "but found : [%s]", errorMsg, expected, actual);
     }
 }
