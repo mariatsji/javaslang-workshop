@@ -63,6 +63,17 @@ public class ImmutableCollectionsTest {
         assertEquality(expected, result, List::equals, "flipEveryOther should flip every other Tuple2<Integer, Integer> (starting from the first) in a List");
     }
 
+    @Test
+    public void should_add_ten_to_integer_element_of_tuple() {
+        Tuple2<String, Integer> transformed = ImmutableCollections.transformTuple(Tuple.of("yo", 4));
+        assertEquality(Tuple.of("yo", 14), transformed, Tuple2::equals, "transformTuple should add 10 to second element, and keep first element unaltered");
+    }
+
+    @Test
+    public void should_provide_a_function_to_mapTupleWith_that_transforms_a_tuple_of_0_to_tuple_of_10() {
+        Tuple2<Integer, Integer> mappedTuple = ImmutableCollections.mapTupleWith((a, b) -> Tuple.of(10, 10));
+        assertEquality(Tuple.of(10, 10), mappedTuple, Tuple2::equals, "mapTupleWith should be provided a function that transforms Tuple(0,0) to Tuple(10,10)");
+    }
 
 
 

@@ -1,5 +1,7 @@
 package no.finn.workshop.javaslang;
 
+import java.util.function.BiFunction;
+
 import javaslang.Tuple;
 import javaslang.Tuple2;
 import javaslang.collection.List;
@@ -37,7 +39,18 @@ public class ImmutableCollections {
     }
     //
 
-    //Tuple
+    //Make this function return a Tuple2(a,b+10) (keep first element (String) and add 10 to second element (Integer))
+    public static Tuple2<String, Integer> transformTuple(Tuple2<String, Integer> theTuple) {
+        return theTuple.map((a, b) -> Tuple.of(a, b + 10));
+    }
+
+    //Provide a function that returns a Tuple2(10,10)
+    public static Tuple2<Integer, Integer> mapTupleWith(BiFunction<Integer, Integer, Tuple2<Integer, Integer>> func) {
+        Tuple2<Integer, Integer> theOrigoTuple = Tuple.of(0, 0);
+        return theOrigoTuple.map(func);
+    }
+
+    //Immutable map, set
 
     //Either - Try - Option
 
