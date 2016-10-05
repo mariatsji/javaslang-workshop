@@ -2,8 +2,11 @@ package no.finn.workshop.javaslang;
 
 import java.util.function.BiFunction;
 
+import javaslang.Function1;
 import javaslang.Tuple;
 import javaslang.Tuple2;
+import javaslang.collection.HashMap;
+import javaslang.collection.HashSet;
 import javaslang.collection.List;
 import no.finn.workshop.javaslang.things.Age;
 
@@ -50,13 +53,37 @@ public class ImmutableCollections {
         return theOrigoTuple.map(func);
     }
 
-    //Immutable map, set
+    //create a javaslang HashMap
+    public static <A,B> HashMap<A,B> toJavalangMap(java.util.Map<? extends A, ? extends B> map) {
+        return HashMap.ofAll(map);
+    }
+
+    //create a javaslang HashSet
+    public static <A> javaslang.collection.HashSet<A> toJavaslangSet(java.util.Set<A> set) {
+        return HashSet.ofAll(set);
+    }
+
+    // Should return a Function1 from Value V to Boolean. True when V exists in set, False otherwise
+    public static <V> Function1<V, Boolean> toFunction(javaslang.collection.HashSet<V> set) {
+        return set;
+    }
+
+    // Should return a Function1 from Value V to Key K
+    public static <K,V> Function1<K,V> toFunction(javaslang.collection.HashMap<K,V> map) {
+        return map;
+    }
+
+    // Sum ints in a javaslang HashSet
+    public static Integer sum(javaslang.collection.HashSet<Integer> ints) {
+        return ints.sum().intValue();
+    }
+
+    public static <A> List<A> toList(javaslang.collection.HashSet<A> set) {
+        return set.toList();
+    }
+
 
     //Either - Try - Option
-
-    public static void main(String[] args) {
-
-    }
 
 
 
