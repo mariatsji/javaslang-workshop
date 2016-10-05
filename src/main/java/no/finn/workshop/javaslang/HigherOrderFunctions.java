@@ -2,6 +2,8 @@ package no.finn.workshop.javaslang;
 
 import java.util.function.Function;
 
+import javaslang.Function1;
+import javaslang.Tuple;
 import javaslang.collection.List;
 
 public class HigherOrderFunctions {
@@ -18,4 +20,13 @@ public class HigherOrderFunctions {
     public static <X> Function<X,X> composeAll(List<Function<X, X>> functions) {
         return functions.fold(Function.identity(), Function::compose);
     }
+
+    // Derive a polynomial function (represented by the PolyFunction class). e.g. : 3.0x^2 + 2.0bx + 1.0 = 0 would be created like this :
+    // new PolyFunction(HashMap.of(2, 3.0, 1, 2.0, 0, 1.0));
+    public static Function1<PolyFunction, PolyFunction> derive(PolyFunction p) {
+        return po -> new PolyFunction(
+                p.poly.map(
+                        t -> Tuple.of(t._1 > 0 ? t._1 - 1 : 0, t._2 * t._1)));
+    }
+
 }
