@@ -7,7 +7,7 @@ import javaslang.control.Either;
 import javaslang.control.Option;
 import javaslang.control.Try;
 
-public class TryEitherOption {
+public class TryEitherOptionTasks {
 
     //Create an Either.Left of an empty Option<String>
     public static Either<Option<String>, Option<Integer>> weirdEither() {

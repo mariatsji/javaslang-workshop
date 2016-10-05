@@ -3,7 +3,7 @@ package no.finn.workshop.javaslang;
 import javaslang.Function1;
 import javaslang.collection.List;
 
-public class Memoized {
+public class MemoizedTasks {
 
     // Say you just wrote a primitive find-prime-function, like the one in isPrimeFunction()
     // Say it is applied a lot of times with the same argument, it would be a good idea to cache the result

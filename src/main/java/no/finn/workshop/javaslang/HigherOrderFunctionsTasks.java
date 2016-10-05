@@ -6,7 +6,7 @@ import javaslang.Function1;
 import javaslang.Tuple;
 import javaslang.collection.List;
 
-public class HigherOrderFunctions {
+public class HigherOrderFunctionsTasks {
 
     // Higher Order Functions are when you either return Functions or accept Functions as arguments
     // Function composition F . G with an initial argument (x) is defined as F.apply(G.apply(x))

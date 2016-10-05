@@ -4,7 +4,7 @@ import java.util.function.BiFunction;
 
 import javaslang.collection.List;
 
-public class Folds {
+public class FoldsTasks {
 
     public static Double sumAListUsingFold(List<Double> list) {
         return list.foldRight(0d, Double::sum);

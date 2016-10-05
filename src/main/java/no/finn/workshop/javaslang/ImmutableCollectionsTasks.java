@@ -10,7 +10,7 @@ import javaslang.collection.HashSet;
 import javaslang.collection.List;
 import no.finn.workshop.javaslang.things.Age;
 
-public class ImmutableCollections {
+public class ImmutableCollectionsTasks {
 
     //List
     public static <T> List<T> createFrom(java.util.List<T> aList) {

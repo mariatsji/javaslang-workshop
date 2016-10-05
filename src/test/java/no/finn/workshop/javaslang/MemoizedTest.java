@@ -9,15 +9,15 @@ public class MemoizedTest {
     @Test
     public void should_speed_up_prime_check_using_memoized() {
         long testLong = 12984L;
-        Memoized.isPrimeFunction().apply(testLong);//test run
+        MemoizedTasks.isPrimeFunction().apply(testLong);//test run
         long before = System.currentTimeMillis();
-        Memoized.isPrimeFunction().apply(testLong);
+        MemoizedTasks.isPrimeFunction().apply(testLong);
         long after = System.currentTimeMillis();
 
         long singleCheckPerformanceUntuned = after - before;
 
         long testPerformanceBefore = System.currentTimeMillis();
-        Memoized.checkIfPrimeAWholeLot(testLong);
+        MemoizedTasks.checkIfPrimeAWholeLot(testLong);
         long testPerformanceAfter = System.currentTimeMillis();
 
         long performance = testPerformanceAfter - testPerformanceBefore;
