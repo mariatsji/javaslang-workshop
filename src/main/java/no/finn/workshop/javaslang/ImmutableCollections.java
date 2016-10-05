@@ -78,9 +78,9 @@ public class ImmutableCollections {
         return ints.sum().intValue();
     }
 
+    // make a javaslang list from a javaslang set
     public static <A> List<A> toList(javaslang.collection.HashSet<A> set) {
         return set.toList();
     }
-
 
 }
