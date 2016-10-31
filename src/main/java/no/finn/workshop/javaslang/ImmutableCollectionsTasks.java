@@ -31,6 +31,14 @@ public class ImmutableCollectionsTasks {
         return new Tuple2<String, Integer>(a, b);
     }
 
+    public static List<Integer> doubleEveryInt(List<Integer> ints) {
+        return ints.map(i -> i * 2);
+    }
+
+    public static List<Integer> retainOddNumbers(List<Integer> ints) {
+        return ints.filter(i -> i % 2 == 1);
+    }
+
     //flip every other (element that has even index (0 based)) tuple in a list. zipWithIndex might come in handy.
     public static List<Tuple2<Integer, Integer>> flipEveryOther(List<Tuple2<Integer, Integer>> ints) {
         return ints.zipWithIndex()

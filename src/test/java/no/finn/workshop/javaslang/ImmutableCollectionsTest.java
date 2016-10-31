@@ -52,6 +52,18 @@ public class ImmutableCollectionsTest {
     }
 
     @Test
+    public void should_double_every_int_in_list() {
+        List<Integer> ints = List.of(1, 2, 3);
+        assertTrue(ImmutableCollectionsTasks.doubleEveryInt(ints), List.of(2, 4, 6)::equals, "Expected List(1,2,3) to become List(2,4,6) after doubling");
+    }
+
+    @Test
+    public void should_retain_odd_ints_in_list() {
+        List<Integer> ints = List.of(1,4,9,12);
+        assertTrue(ImmutableCollectionsTasks.retainOddNumbers(ints), List.of(1, 9)::equals, "Expected to retain List(1,9) from List.of(1,4,9.12)");
+    }
+
+    @Test
     public void should_create_tuple_from_string_and_int() {
         Tuple2<String, Integer> yo = ImmutableCollectionsTasks.createTupleFrom("yo", 5);
         assertEquality(new Tuple2<>("yo", 5), yo, Tuple2::equals, "createTupleFrom should create a Tuple2<String, Integer> containing the parameters of the method");

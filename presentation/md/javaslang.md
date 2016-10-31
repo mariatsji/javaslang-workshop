@@ -1,22 +1,24 @@
 ## Movitation
-
+- - -
 
 Java collections are
-* mutable
-* not lifted
+
+- mutable
+- not lifted
+- inconsistent
 
 
 ## Javaslang
-
-* Functional, coherent collections
-* Lots of methods on collections
-* Functional, coherent control values (Either, Try, Option)
-* Tuples, Lazy, Currying, Lifting, Composition
-* Validation, Pattern Matching
+- - -
+- Functional, coherent collections
+- Lots of methods on collections
+- Functional, coherent control values (Either, Try, Option)
+- Tuples, Lazy, Currying, Lifting, Composition
+- Validation, Pattern Matching
 
 
 ## Javaslang-collections
-
+- - -
 ~~~java
 import static javaslang.collection.*;
 
@@ -25,18 +27,27 @@ List.ofAll(myJavaUtilList);
 List.rangeBy('a', 'z', 2).mkString();
 HashMap.of(1, "one", 2, "two");
 HashSet.fill(5, () -> new Random().nextInt());
-
 ~~~
 
-## javaslang.collection.Seq
-- - - 
 
+
+## javaslang.collection.Seq
+- - -
 ![javaslang-collections-seq](http://localhost:8000/img/collections-seq.png "Javaslang collections seq")
 
 
-
 ## javaslang.collection.Set / Map
-- - - 
-
+- - -
 ![javaslang-collections](http://localhost:8000/img/javaslang-collections.png "Javaslang collections")
+
+
+## javaslang.collection.Traversable API
+- - -
+[javaslang-traversable-api](http://static.javadoc.io/io.javaslang/javaslang/2.0.4/index.html?javaslang/collection/Traversable.html)
+
+
+
+
+
+## javaslang
 
