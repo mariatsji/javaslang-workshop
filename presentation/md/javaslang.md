@@ -23,6 +23,7 @@ Java collections are
 import static javaslang.collection.*;
 
 List.of(1,2,3);
+List.of("a", "b").toJavaList();
 List.ofAll(myJavaUtilList);
 List.rangeBy('a', 'z', 2).mkString();
 HashMap.of(1, "one", 2, "two");
@@ -30,15 +31,24 @@ HashSet.fill(5, () -> new Random().nextInt());
 ~~~
 
 
+## javaslang overview
+- - -
+
+![javaslang-overview](img/javaslang-overview.png "Javaslang overview")
+
+- Tuple
+- λ
+- Value
+
 
 ## javaslang.collection.Seq
 - - -
-![javaslang-collections-seq](http://localhost:8000/img/collections-seq.png "Javaslang collections seq")
+![javaslang-collections-seq](img/collections-seq.png "Javaslang collections seq")
 
 
 ## javaslang.collection.Set / Map
 - - -
-![javaslang-collections](http://localhost:8000/img/javaslang-collections.png "Javaslang collections")
+![javaslang-collections](img/javaslang-collections.png "Javaslang collections")
 
 
 ## javaslang.collection.Traversable API
@@ -47,7 +57,7 @@ HashSet.fill(5, () -> new Random().nextInt());
 
 
 
+## javaslang usage guide
 
-
-## javaslang
+[javaslang-usage-guide](http://www.javaslang.io/javaslang-docs/#_usage_guide)
 
