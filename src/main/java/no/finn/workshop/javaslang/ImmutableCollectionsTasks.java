@@ -1,11 +1,16 @@
 package no.finn.workshop.javaslang;
 
+import java.util.function.Predicate;
+
 import javaslang.Function1;
 import javaslang.Tuple;
 import javaslang.Tuple2;
+import javaslang.collection.Array;
 import javaslang.collection.HashMap;
 import javaslang.collection.HashSet;
 import javaslang.collection.List;
+import javaslang.collection.TreeSet;
+import javaslang.collection.Vector;
 import no.finn.workshop.javaslang.things.Age;
 
 public class ImmutableCollectionsTasks {
@@ -94,6 +99,33 @@ public class ImmutableCollectionsTasks {
     // make a javaslang list from a javaslang set
     public static <A> List<A> toList(javaslang.collection.HashSet<A> set) {
         return set.toList();
+    }
+
+    // make a javaslang Vector of doubles
+    // Vectors - are balanced when it comes to performance of insert, delete and query
+    public static Vector<Double> toVector(Double... doubles) {
+        return Vector.of(doubles);
+    }
+
+    // make a javaslang Array of the english alfabet
+    // Arrays, unlike List can insert and delete values in constant time
+    public static Array<Character> alfabet() {
+        return Array.rangeClosed('a', 'z');
+    }
+
+    // Sort characters using the javaslang TreeSet
+    public static List<Character> sort(Character... chars) {
+        return TreeSet.of(chars).toList();
+    }
+
+    // Find the intersection between two trees
+    public static <X> TreeSet<X> intersection(TreeSet<X> first, TreeSet<X> second) {
+        return first.intersect(second);
+    }
+
+    // split a tree using a predicate
+    public static <X> Tuple2<TreeSet<X>, TreeSet<X>> split(TreeSet<X> tree, Predicate<X> predicate) {
+        return tree.partition(predicate);
     }
 
 }

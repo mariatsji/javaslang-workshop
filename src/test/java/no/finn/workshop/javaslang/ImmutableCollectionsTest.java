@@ -1,13 +1,17 @@
 package no.finn.workshop.javaslang;
 
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 import javaslang.Function1;
 import javaslang.Tuple;
 import javaslang.Tuple2;
+import javaslang.collection.Array;
 import javaslang.collection.HashMap;
 import javaslang.collection.HashSet;
 import javaslang.collection.List;
+import javaslang.collection.TreeSet;
+import javaslang.collection.Vector;
 import no.finn.workshop.javaslang.things.Age;
 import org.junit.Test;
 
@@ -154,5 +158,39 @@ public class ImmutableCollectionsTest {
         assertEquality(List.of(1, 2, 3), integers, List::equals, "Expected List(1,2,3) from Set(1,2,3)");
     }
 
+    @Test
+    public void should_create_vector_of_doubles() {
+        Vector<Double> doubles = ImmutableCollectionsTasks.toVector(0.0, 1.0, 5.0);
+        assertEquality(Vector.of(0.0, 1.0, 5.0), doubles, Vector::equals, "Expected Vector(0.0, 1.0, 5.0)");
+    }
+
+    @Test
+    public void should_create_the_alfabet() {
+        Array<Character> alfabet = ImmutableCollectionsTasks.alfabet();
+        assertEquality(Array.of('a', 'b'), alfabet.take(2), Array::equals, "Expected the first two Characters to be Array('a', 'b')");
+    }
+
+    @Test
+    public void should_sort_characters_using_a_treeset() {
+        List<Character> sorted = ImmutableCollectionsTasks.sort('z', 't', 'a', 'k', 'o');
+        assertEquality(List.of('a', 'k', 'o', 't', 'z'), sorted, List::equals, "Expected List('a', 'k, 'o', 't', 'z')");
+    }
+
+    @Test
+    public void should_find_the_intersection_between_two_trees() {
+        TreeSet<Integer> first = TreeSet.of(1, 2, 3);
+        TreeSet<Integer> second = TreeSet.of(2, 3, 4);
+        TreeSet<Integer> intersection = ImmutableCollectionsTasks.intersection(first, second);
+        assertEquality(TreeSet.of(2, 3), intersection, TreeSet::equals, "Expected intersection of (1,2,3) and (2,3,4) to be (2,3)");
+    }
+
+    @Test
+    public void should_split_a_tree_using_a_predicate() {
+        TreeSet<Integer> set = TreeSet.rangeClosed(1, 10);
+        Predicate<Integer> predicate = i -> i % 2 == 0;
+        Tuple2<TreeSet<Integer>, TreeSet<Integer>> partitioned = ImmutableCollectionsTasks.split(set, predicate);
+        assertEquality(TreeSet.of(2, 4, 6, 8, 10), partitioned._1, TreeSet::equals, "expected first in partitioned tuple to be (2,4,6,8,10) given " + set + " with even-number predicate");
+        assertEquality(TreeSet.of(1, 3, 5, 7, 9), partitioned._2, TreeSet::equals, "expected second in partitioned tuple to be (1,3,5,7,9) given " + set + " and odd-number predicate");
+    }
 
 }
