@@ -36,6 +36,16 @@ public class TryEitherOptionTest {
     }
 
     @Test
+    public void should_resolve_addresses_for_list_of_personids() {
+        List<Long> personIds = List.of(-1L, 2L, 200L);
+        List<String> addresses = TryEitherOptionTasks.getAddresses(personIds);
+        assertTrue(
+                addresses,
+                l -> l.get(0).isEmpty() && !l.get(1).isEmpty() && l.get(2).isEmpty(),
+                "Expected empty address only for invalid personId, and for personId that does not exist (>100) but got " + addresses);
+    }
+
+    @Test
     public void should_create_a_try_seq_from_a_seq_try(){
         List<Try<?>> tries = List.of(Try.success(1), Try.failure(new Exception()), Try.success(3));
         Try<Seq<Object>> seq = TryEitherOptionTasks.superTry(tries);

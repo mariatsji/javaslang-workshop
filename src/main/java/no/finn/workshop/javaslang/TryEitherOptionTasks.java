@@ -7,6 +7,7 @@ import javaslang.collection.Seq;
 import javaslang.control.Either;
 import javaslang.control.Option;
 import javaslang.control.Try;
+import no.finn.workshop.javaslang.things.PersonServiceImpl;
 
 public class TryEitherOptionTasks {
 
@@ -23,6 +24,17 @@ public class TryEitherOptionTasks {
     //Transform a Try to an Option that is Present on Success and absent on Failure
     public static <A> Option<A> toOption(Try<A> tryy) {
         return tryy.toOption();
+    }
+
+    //From a List of personId, use a new PersonService() to return a list of corresponding Addresses (a String)
+    //Use an empty String for every missing or failing Address
+    public static List<String> getAddresses(List<Long> personIds) {
+        PersonServiceImpl personService = new PersonServiceImpl();
+
+        return personIds.map(personService::getPerson)
+                .map(e ->
+                        e.fold(s -> "",
+                        o -> o.map(personService::getAddress).getOrElse(() -> "")));
     }
 
     // apply two unsafe functions and return the Try of the result (first apply seed to unsafeFunction1, then apply result to unsafeFunction2)

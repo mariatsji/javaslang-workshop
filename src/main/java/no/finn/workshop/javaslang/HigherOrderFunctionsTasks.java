@@ -2,7 +2,6 @@ package no.finn.workshop.javaslang;
 
 import java.util.function.Function;
 
-import javaslang.Function1;
 import javaslang.Tuple;
 import javaslang.collection.List;
 
@@ -23,7 +22,9 @@ public class HigherOrderFunctionsTasks {
 
     // Derive a polynomial function (represented by the PolyFunction class). e.g. : 3.0x^2 + 2.0bx + 1.0 = 0 would be created like this :
     // new PolyFunction(HashMap.of(2, 3.0, 1, 2.0, 0, 1.0));
-    public static Function1<PolyFunction, PolyFunction> derive(PolyFunction p) {
+    // Note that you are returning a Function here, (not just the derived PolyFunction)
+    // This can be achieved by wrapping it all in a lambda
+    public static Function<PolyFunction, PolyFunction> derive(PolyFunction p) {
         return po -> new PolyFunction(
                 p.poly.map(
                         t -> Tuple.of(t._1 > 0 ? t._1 - 1 : 0, t._2 * t._1)));

@@ -2,7 +2,6 @@ package no.finn.workshop.javaslang;
 
 import java.util.function.Function;
 
-import javaslang.Function1;
 import javaslang.collection.HashMap;
 import javaslang.collection.List;
 import org.junit.Test;
@@ -34,7 +33,7 @@ public class HigherOrderFunctionsTest {
     public void should_derive_a_poly_function() {
         PolyFunction polyFunction = new PolyFunction(HashMap.of(2, 3.0, 1, 2.0, 0, 1.0));
 
-        Function1<PolyFunction, PolyFunction> derive = HigherOrderFunctionsTasks.derive(polyFunction);
+        Function<PolyFunction, PolyFunction> derive = HigherOrderFunctionsTasks.derive(polyFunction);
 
         PolyFunction derived = derive.apply(polyFunction);
 
