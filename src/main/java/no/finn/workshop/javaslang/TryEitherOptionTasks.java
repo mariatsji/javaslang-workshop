@@ -1,6 +1,7 @@
 package no.finn.workshop.javaslang;
 
-import javaslang.Function1;
+import java.util.function.Function;
+
 import javaslang.collection.List;
 import javaslang.collection.Seq;
 import javaslang.control.Either;
@@ -25,13 +26,13 @@ public class TryEitherOptionTasks {
     }
 
     // apply two unsafe functions and return the Try of the result (first apply seed to unsafeFunction1, then apply result to unsafeFunction2)
-    public static Try<String> combineUnsafeFunctions(Function1<Integer, Integer> unsafeFunction1, Function1<Integer, String> unsafeFunction2, Integer seed) {
+    public static Try<String> combineUnsafeFunctions(Function<Integer, Integer> unsafeFunction1, Function<Integer, String> unsafeFunction2, Integer seed) {
         return Try.of(() -> unsafeFunction1.apply(seed))
-                .map(unsafeFunction2::apply);
+                .map(unsafeFunction2);
     }
 
     // Do the exact same thing, but now use flatMap() if you used map() earlier (or vice versa)
-    public static Try<String> combineUnsafeFunctions2(Function1<Integer, Integer> unsafeFunction1, Function1<Integer, String> unsafeFunction2, Integer seed) {
+    public static Try<String> combineUnsafeFunctions2(Function<Integer, Integer> unsafeFunction1, Function<Integer, String> unsafeFunction2, Integer seed) {
         return Try.of(() -> unsafeFunction1.apply(seed))
                 .flatMap(i -> Try.of(() -> unsafeFunction2.apply(i)));
     }

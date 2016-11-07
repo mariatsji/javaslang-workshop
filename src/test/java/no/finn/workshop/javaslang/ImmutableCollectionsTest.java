@@ -30,6 +30,21 @@ public class ImmutableCollectionsTest {
         );
     }
 
+
+    @Test
+    public void should_create_javaslang_list_from_varargs_object_array() {
+        java.util.List<Integer> rawList = Arrays.asList(1, 2, 3, 4);
+        List<Integer> result = ImmutableCollectionsTasks.createFromAll(1,2,3,4);
+        assertTrue(result, l -> l != null && l.nonEmpty(), "createFrom should return a nonempty javaslang List");
+        assertTrue(result, l -> l.equals(List.of(1, 2, 3, 4)), "createFrom should return a javaslang List containing 1,2,3,4");
+        assertEquality(
+                ImmutableCollectionsTasks.createFrom(rawList),
+                List.of(1,2,3,4),
+                Object::equals,
+                "createFrom should return a javaslang List containing 1,2,3,4"
+        );
+    }
+
     @Test
     public void should_map_all_integers_to_age_in_a_list() {
         List<Integer> rawList = List.of(18, 20, 37);
@@ -85,18 +100,12 @@ public class ImmutableCollectionsTest {
     }
 
     @Test
-    public void should_provide_a_function_to_mapTupleWith_that_transforms_a_tuple_of_0_to_tuple_of_10() {
-        Tuple2<Integer, Integer> mappedTuple = ImmutableCollectionsTasks.mapTupleWith((a, b) -> Tuple.of(10, 10));
-        assertEquality(Tuple.of(10, 10), mappedTuple, Tuple2::equals, "mapTupleWith should be provided a function that transforms Tuple(0,0) to Tuple(10,10)");
-    }
-
-    @Test
     public void should_create_javaslang_map_from_java_util_map() {
         java.util.Map<String, Integer> map = new java.util.HashMap<>();
         map.put("a", 1);
         map.put("b", 2);
         javaslang.collection.HashMap<String, Integer> javaslangMap =
-                ImmutableCollectionsTasks.toJavalangMap(map);
+                ImmutableCollectionsTasks.toJavaslangMap(map);
         assertTrue(javaslangMap, l -> l.equals(javaslang.collection.HashMap.of("a", 1, "b", 2)), "createFrom should return a javaslang HashMap containing a->1,b->2");
     }
 
@@ -108,6 +117,14 @@ public class ImmutableCollectionsTest {
         set.add("mi");
         javaslang.collection.HashSet<String> strings = ImmutableCollectionsTasks.toJavaslangSet(set);
         assertTrue(strings, s -> s.equals(javaslang.collection.HashSet.of("do", "re", "mi")), "should create a javaslang HashSet from java util HashSet with strings do re mi");
+    }
+
+    @Test
+    public void should_create_java_list_from_javaslang_list() {
+        List<String> list = List.of("do", "re", "mi");
+        java.util.List<String> strings = ImmutableCollectionsTasks.toJavaList(list);
+        assertTrue(strings, Arrays.asList("do", "re", "mi")::equals, "expected java.util.List of strings do re mi");
+
     }
 
     @Test
