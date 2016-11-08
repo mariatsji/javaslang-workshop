@@ -20,7 +20,7 @@ public class MemoizedTasks {
 
     // leave this unmodified
     public static Function1<Long, Boolean> isPrimeFunction() {
-        return i -> List.rangeClosed(2, ((i / 2) + 1)).find(x -> i % x == 0).isDefined();
+        return i -> i % 2 == 1 || List.rangeClosed(2, ((i / 2) + 1)).find(x -> i % x == 0).isEmpty();
     }
 
 }
