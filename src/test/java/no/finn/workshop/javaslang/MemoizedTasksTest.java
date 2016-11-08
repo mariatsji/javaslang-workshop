@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static no.finn.workshop.javaslang.LambdaAssert.assertTrue;
 
-public class MemoizedTest {
+public class MemoizedTasksTest {
 
     @Test
     public void should_speed_up_prime_check_using_memoized() {

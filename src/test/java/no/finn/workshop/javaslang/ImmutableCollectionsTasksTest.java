@@ -18,7 +18,7 @@ import org.junit.Test;
 import static no.finn.workshop.javaslang.LambdaAssert.assertEquality;
 import static no.finn.workshop.javaslang.LambdaAssert.assertTrue;
 
-public class ImmutableCollectionsTest {
+public class ImmutableCollectionsTasksTest {
 
     @Test
     public void should_create_javaslang_list_from_list() {

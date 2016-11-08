@@ -11,7 +11,7 @@ import org.junit.Test;
 import static no.finn.workshop.javaslang.LambdaAssert.assertEquality;
 import static no.finn.workshop.javaslang.LambdaAssert.assertTrue;
 
-public class TryEitherOptionTest {
+public class TryEitherOptionTasksTest {
 
     @Test
     public void should_create_a_left_with_empty_option() {

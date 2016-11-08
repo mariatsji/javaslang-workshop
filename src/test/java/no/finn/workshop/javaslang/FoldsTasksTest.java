@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static no.finn.workshop.javaslang.LambdaAssert.assertEquality;
 
-public class FoldsTest {
+public class FoldsTasksTest {
 
     @Test
     public void should_sum_a_list_using_fold() {
