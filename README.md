@@ -9,5 +9,6 @@
 * ImmutableCollectionsTasks
 * TryEitherOptionTasks
 * FoldsTasks
+* ForComprehensionTasks
 * HigherOrderFunctionsTasks
 * MemoizedTasks
