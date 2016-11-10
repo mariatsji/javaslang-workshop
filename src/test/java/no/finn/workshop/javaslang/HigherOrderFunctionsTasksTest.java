@@ -2,6 +2,8 @@ package no.finn.workshop.javaslang;
 
 import java.util.function.Function;
 
+import javaslang.Function1;
+import javaslang.Function2;
 import javaslang.collection.HashMap;
 import javaslang.collection.List;
 import org.junit.Test;
@@ -9,7 +11,17 @@ import org.junit.Test;
 import static no.finn.workshop.javaslang.LambdaAssert.assertEquality;
 import static no.finn.workshop.javaslang.LambdaAssert.assertTrue;
 
-public class HigherOrderFunctionsTest {
+public class HigherOrderFunctionsTasksTest {
+
+    @Test
+    public void should_use_currying_and_partially_apply_a_function_missing_one_argument() {
+        Function2<Integer, Integer, Integer> func = (a,b) -> 2 * (a + b);
+        Function<Integer, Integer> actual = HigherOrderFunctionsTasks.applyCurried(func, 4);
+        Function1<Integer, Integer> actualLifted = (Function1<Integer, Integer>) actual;
+        Function<Integer, Integer> expected = a -> 2 * (a + 4);
+        assertEquality(1, actualLifted.arity(), Integer::equals, "expected arity of partially applied function to be 1");
+        assertEquality(14, actualLifted.apply(3), Integer::equals, "expected (a,b) -> 2 * (a + b) with a = 4 to become b -> 2 * (4 + b)");
+    }
 
     @Test
     public void should_compose_two_functions() {

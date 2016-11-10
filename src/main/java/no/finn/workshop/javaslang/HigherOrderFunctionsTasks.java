@@ -2,10 +2,20 @@ package no.finn.workshop.javaslang;
 
 import java.util.function.Function;
 
+import javaslang.Function2;
 import javaslang.Tuple;
 import javaslang.collection.List;
 
 public class HigherOrderFunctionsTasks {
+
+    // Currying (named after Haskell Curry) is the transformation of a FunctionN (that is, has N arguments, or arity N)
+    // into a nested Function1 (that is, has only one argument)
+    // this makes it possible to partially apply a Function
+    // e.g. call a method that take 3 arguments with only 2 arguments, because they are all you know at the moment.
+    // Given a Function2 and its first argument, return the curried and partially applied function
+    public static Function<Integer, Integer> applyCurried(Function2<Integer, Integer, Integer> func, Integer firstArgument) {
+        return func.curried().apply(firstArgument);
+    }
 
     // Higher Order Functions are when you either return Functions or accept Functions as arguments
     // Function composition F . G with an initial argument (x) is defined as F.apply(G.apply(x))
