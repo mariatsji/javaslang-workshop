@@ -22,5 +22,4 @@ public class FoldsTasks {
         return original.foldLeft(List.empty(), f);
     }
 
-
 }

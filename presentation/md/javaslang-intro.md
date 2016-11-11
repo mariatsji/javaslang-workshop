@@ -1,17 +1,24 @@
 ## Movitation
 - - -
+Pure Java Functional Programming
+
+- Poor Function-representation
+- CheckedExceptions
+- Only one (broken) Functional Control Structure (not Serializable, not Iterable)
+
 
 Java collections are
 
 - mutable
-- not lifted
-- inconsistent
+- not lifted (NPE)
+- inconsistent (Stream vs Optional..)
+- list.stream().map(..).collect(Collectors.toList()) 
 
 
 ## Javaslang
 - - -
 - Functional, coherent collections
-- Lots of methods on collections
+- LOTS of useful methods on collections
 - Functional, coherent control values (Either, Try, Option)
 - Tuples, Lazy, Currying, Lifting, Composition
 - Validation, Pattern Matching
@@ -49,11 +56,6 @@ HashSet.fill(5, () -> new Random().nextInt());
 ## javaslang.collection.Set / Map
 - - -
 ![javaslang-collections](img/javaslang-collections.png "Javaslang collections")
-
-
-## javaslang.collection.Traversable API
-- - -
-[javaslang-traversable-api](http://static.javadoc.io/io.javaslang/javaslang/2.0.4/index.html?javaslang/collection/Traversable.html)
 
 
 
