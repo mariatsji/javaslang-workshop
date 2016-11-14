@@ -1,33 +1,35 @@
-## Movitation
-- - -
-Pure Java Functional Programming
+## Javaslang
 
-- Poor Function-representation
+
+## FP in pure Java
+
+- limited Function
 - CheckedExceptions
-- Only one (broken) Functional Control Structure (not Serializable, not Iterable)
+- broken Optional
+- no tuples
 
 
-Java collections are
+## FP with Java Collections
 
 - mutable
 - not lifted (NPE)
-- inconsistent (Stream vs Optional..)
-- list.stream().map(..).collect(Collectors.toList()) 
+- inconsistent (Stream with empty Optionals..)
+- list.stream().map(..).collect(Collectors.toList())
 
 
 ## Javaslang
-- - -
-- Functional, coherent collections
-- LOTS of useful methods on collections
+
+- Functional, immutable collections
+- .. with LOTS of methods
 - Functional, coherent control values (Either, Try, Option)
 - Tuples, Lazy, Currying, Lifting, Composition
-- Validation, Pattern Matching
+- Validation, For-comprehensions, Pattern Matching
 
 
 ## Javaslang-collections
-- - -
+
 ~~~java
-import static javaslang.collection.*;
+import javaslang.collection.*;
 
 List.of(1,2,3);
 List.of("a", "b").toJavaList();
@@ -39,7 +41,6 @@ HashSet.fill(5, () -> new Random().nextInt());
 
 
 ## javaslang overview
-- - -
 
 ![javaslang-overview](img/javaslang-overview.png "Javaslang overview")
 
@@ -54,12 +55,10 @@ HashSet.fill(5, () -> new Random().nextInt());
 
 
 ## javaslang.collection.Set / Map
-- - -
-![javaslang-collections](img/javaslang-collections.png "Javaslang collections")
 
+![javaslang-collections](img/javaslang-collections.png "Javaslang collections")
 
 
 ## javaslang usage guide
 
 [javaslang-usage-guide](http://www.javaslang.io/javaslang-docs/#_usage_guide)
-

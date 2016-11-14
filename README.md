@@ -1,7 +1,7 @@
 # To run presentation locally
 * cd presentation
-* python -m SimpleHTTPServer 8000
-* open localhost:8000 in browser
+* python -m SimpleHTTPServer 3000
+* open localhost:3000 in browser
 
 # Tasks
 * Complete every class ending in *Tasks.java
