@@ -17,7 +17,6 @@ public class MemoizedTasksTest {
     }
 
     private Boolean memoizedShouldBeFaster(Long testLong) {
-        System.out.println("Number to check: " +testLong);
         long before = System.currentTimeMillis();
         MemoizedTasks.isPrimeFunction().apply(testLong);//test run
         long after = System.currentTimeMillis();
@@ -29,7 +28,6 @@ public class MemoizedTasksTest {
         MemoizedTasks.checkIfPrimeAWholeLot(testLong);
         long testPerformanceAfter = System.currentTimeMillis();
         long performance = testPerformanceAfter - testPerformanceBefore;
-        System.out.println("For number: " +testLong + " time spent memoized: " +performance + " \t time spent unmemoized: " +singleCheckPerformanceUntuned);
         return singleCheckPerformanceUntuned * 10 > performance;
     }
 }
