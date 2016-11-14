@@ -4,8 +4,6 @@ import javaslang.test.Gen;
 import javaslang.test.Property;
 import org.junit.Test;
 
-import static no.finn.workshop.javaslang.LambdaAssert.assertTrue;
-
 public class MemoizedTasksTest {
 
     @Test
@@ -13,7 +11,7 @@ public class MemoizedTasksTest {
         Gen<Long> longGen = Gen.choose(10000L, 100000L).filter(x -> x % 2 != 0);
         Property.def("Prime calculation should be memoized")
                 .forAll(longGen.arbitrary())
-                .suchThat(l -> memoizedShouldBeFaster(l))
+                .suchThat(this::memoizedShouldBeFaster)
                 .check()
                 .assertIsSatisfied();
     }
