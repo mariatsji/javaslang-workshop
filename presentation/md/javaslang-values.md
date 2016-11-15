@@ -1,8 +1,8 @@
-## Functional Programming
+## FP - Values
 
 > The key to a better Java is to use immutable values paired with referential transparent functions.
 
-Rich Hickey
+<small>Rich Hickey</small>
 
 
 ## Why not mutate values?
@@ -58,7 +58,8 @@ Rich Hickey
 
 checks:
 > congruence of structures AND equality of contained values.
-- congruence: noun, agreement or harmony; compatibility.
+
+<small> (*) congruence; noun, agreement or harmony; compatibility.</small>
 
 ~~~java
 final Value<?> i1 = List.of(List.of(1, 2), Arrays.asList(List.of(3)));

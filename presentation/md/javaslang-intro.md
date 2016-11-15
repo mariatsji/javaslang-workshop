@@ -12,7 +12,7 @@
 ## FP with Java Collections
 
 - mutable
-- not lifted (NPE)
+- not lifted (NPE, only forEach)
 - inconsistent (Stream with empty Optionals..)
 - list.stream().map(..).collect(Collectors.toList())
 
@@ -40,15 +40,6 @@ HashSet.fill(5, () -> new Random().nextInt());
 ~~~
 
 
-## javaslang overview
-
-![javaslang-overview](img/javaslang-overview.png "Javaslang overview")
-
-- Tuple
-- λ
-- Value
-
-
 ## javaslang.collection.Seq
 - - -
 ![javaslang-collections-seq](img/collections-seq.png "Javaslang collections seq")
@@ -59,6 +50,10 @@ HashSet.fill(5, () -> new Random().nextInt());
 ![javaslang-collections](img/javaslang-collections.png "Javaslang collections")
 
 
-## javaslang usage guide
+## javaslang overview
 
-[javaslang-usage-guide](http://www.javaslang.io/javaslang-docs/#_usage_guide)
+![javaslang-overview](img/javaslang-overview.png "Javaslang overview")
+
+- Tuple
+- λ
+- Value

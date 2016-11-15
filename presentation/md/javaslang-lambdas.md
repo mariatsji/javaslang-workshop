@@ -1,8 +1,8 @@
-## Functional Programming
+## FP - Lambdas
 
 > The key to a better Java is to use immutable values paired with referential transparent functions.
 
-Rich Hickey
+<small>Rich Hickey</small>
 
 
 ## Referential Transparency
@@ -17,20 +17,21 @@ Rich Hickey
 ## void
 
 - a void method has only one purpose: to execute side effects
-- a void method can never be referentially transparent
+- can thus never be referentially transparent
 - try to separate pure functions from side effects in your application
 
 
 ## How to model a Coffee Maker in java?
 
 ~~~java
-Class CoffeeMaker{ 
+class CoffeeMaker{
+
     Water water;
     Beans beans;
     CoffeeFilter filter;
     
     Coffee makeCoffee() { .. }
-     
+    
 } 
 ~~~
 
@@ -38,7 +39,7 @@ Class CoffeeMaker{
 ## Hint : How to model a Coffee Filter 
 
 A CoffeeFilter is a function
-liquid ➔ liquid
+*liquid* ➔ *liquid*
 
 ~~~java
     Function1<Liquid, Liquid> coffeeFilter = l -> l;
@@ -48,7 +49,7 @@ liquid ➔ liquid
 ## So..
 
 A CoffeeMaker is a function 
-(water, beans, coffeefilter) ➔ coffee
+(*water*, *beans*, *coffeefilter*) ➔ *coffee*
 
 ~~~java
     Function3<Beans, Water, Function<Liquid,Liquid>, Coffee> coffeeMaker =
@@ -59,9 +60,60 @@ A CoffeeMaker is a function
 ## Lamda
 The interface of Functions in javaslang
 
-Can be
-- Curried
 - Reversed
+- Curried
 - Composed
 - Memoized
 - Lifted
+
+
+## Reverse
+
+(*a*,*b*) ➔ *c*<br />
+➔<br />
+(*b*,*a*) ➔ *c*
+
+O
+## Currying
+
+(*a*, *b*) ➔ *c* <br />
+➔<br />
+*a* ➔ (*b* ➔ *c*)
+
+
+## Composition
+
+(*b* ➔ *c*) *.* (*a* ➔ *b*)<br />
+➔<br />
+(*a* ➔ *c*)
+
+
+## Memoization
+
+~~~java
+    Function0<Integer> rand = () -> new Random().nextInt();
+    Function0<Integer> memoized = rand.memoized();
+    Stream.fill(3, memoized)
+            .forEach(System.out::println);
+~~~
+
+~~~text
+1882257724
+1882257724
+1882257724
+~~~
+
+
+## Lift
+
+~~~java
+    Function2<Integer, Object[], Object> raw = 
+        (index, array) -> array[index];
+
+    Function2<Integer, Object[], Option<Object>> lifted =
+            Function2.lift(raw);
+
+    Character[] array = {'a', 'b'};
+    Object found = raw.apply(2, array);
+    Option<Object> foundMaybe = lifted.apply(2, array);
+~~~

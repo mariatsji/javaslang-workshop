@@ -8,6 +8,7 @@
 * When corresponding test is green, you're all good :
 * ImmutableCollectionsTasks
 * TryEitherOptionTasks
+* ValidationTasks
 * FoldsTasks
 * ForComprehensionTasks
 * HigherOrderFunctionsTasks
