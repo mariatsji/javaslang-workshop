@@ -73,7 +73,7 @@ The interface of Functions in javaslang
 ➔<br />
 (*b*,*a*) ➔ *c*
 
-O
+
 ## Currying
 
 (*a*, *b*) ➔ *c* <br />
@@ -85,7 +85,7 @@ O
 
 (*b* ➔ *c*) *.* (*a* ➔ *b*)<br />
 ➔<br />
-(*a* ➔ *c*)
+(*a* ➔ *b* ➔ *c*)
 
 
 ## Memoization
