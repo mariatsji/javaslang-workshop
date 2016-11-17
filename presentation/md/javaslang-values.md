@@ -13,7 +13,7 @@
 - Maybe it's allready sorted?
 - Maybe someone needs a pre-sort-snapshot of it?
 - Maybe it's half-way sorted?
-- You need to know every LoC to know if the List is sorted or not..
+- Cannot be chained (list.sort().map(..))
 
 
 ## Why not mutate values?
@@ -72,3 +72,14 @@ System.out.println(i1.eq(i2));
 - Try, Either, Option, Future, Lazy, Validation
 - Can be used in For-comprehension
 - Can be used in eq()-checks
+
+
+## For-comprehension
+
+~~~java
+Future<Character> val1 = Future.of(() -> 'a');
+List<Character> val2 = List.of('b', 'c');
+For(val1, val2)
+        .yield((c1, c2) -> new String(new char[]{c1, c2}))
+        .forEach(System.out::println);
+~~~

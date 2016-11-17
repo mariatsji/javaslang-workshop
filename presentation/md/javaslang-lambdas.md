@@ -74,18 +74,47 @@ The interface of Functions in javaslang
 (*b*,*a*) ➔ *c*
 
 
-## Currying
+## Currying I
 
 (*a*, *b*) ➔ *c* <br />
 ➔<br />
 *a* ➔ (*b* ➔ *c*)
 
 
-## Composition
+## Currying II
+
+~~~java
+    Function2<Integer, Integer, Integer> f = (a,b) -> a + b;
+    Function1<Integer, Integer> addOne = f.apply(1);
+    Integer five = addOne.apply(4);
+~~~
+
+
+## Currying III
+
+~~~java
+   Function2<Integer, Integer, Integer> f = (a,b) -> a + b;
+   Function1<Integer, Function1<Integer, Integer>> curried = f.curried();
+   Function1<Integer, Integer> addOne = curried.apply(1);
+   Integer five = addOne.apply(4);
+~~~
+
+
+## Composition I
 
 (*b* ➔ *c*) *.* (*a* ➔ *b*)<br />
 ➔<br />
 (*a* ➔ *b* ➔ *c*)
+
+
+## Composition II
+
+~~~java
+    Function1<Integer, String> f = String::valueOf;
+    Function1<Integer, Integer> g = i -> i * 2;
+    Function1<Integer, String> composed = f.compose(g);
+
+~~~
 
 
 ## Memoization
