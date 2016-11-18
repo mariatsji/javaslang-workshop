@@ -9,6 +9,7 @@ import javaslang.collection.Array;
 import javaslang.collection.HashMap;
 import javaslang.collection.HashSet;
 import javaslang.collection.List;
+import javaslang.collection.Stream;
 import javaslang.collection.TreeSet;
 import javaslang.collection.Vector;
 import no.finn.workshop.javaslang.things.Age;
@@ -79,6 +80,16 @@ public class ImmutableCollectionsTasks {
     //create a java.util.List
     public static <A> java.util.List<A> toJavaList(List<A> list) {
         return list.toJavaList();
+    }
+
+    //create a javaslang Stream of increasing integers from (inclusive) to (inclusive) given start and end-points
+    public static Stream<Integer> createStream(Integer fromInclusive, Integer toInclusive) {
+        return Stream.rangeClosed(fromInclusive, toInclusive);
+    }
+
+    //create a javaslang List from a java.util.streamStream
+    public static <V> List<V> toJavaslangList(java.util.stream.Stream<V> stream) {
+        return stream.collect(List.collector());
     }
 
     // Should return a Function1 from Value V to Boolean. True when V exists in set, False otherwise

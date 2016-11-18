@@ -2,6 +2,7 @@ package no.finn.workshop.javaslang;
 
 import java.util.Arrays;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import javaslang.Function1;
 import javaslang.Tuple;
@@ -129,6 +130,18 @@ public class ImmutableCollectionsTasksTest {
         java.util.List<String> strings = ImmutableCollectionsTasks.toJavaList(list);
         assertTrue(strings, Arrays.asList("do", "re", "mi")::equals, "expected java.util.List of strings do re mi");
 
+    }
+
+    @Test
+    public void should_create_a_javaslang_stream_from_given_range() {
+        javaslang.collection.Stream<Integer> stream = ImmutableCollectionsTasks.createStream(0, 3);
+        assertTrue(stream.toList(), javaslang.collection.Stream.of(0, 1, 2, 3)::eq, "expected stream of 0 1 2 3");
+    }
+
+    @Test
+    public void should_create_a_javaslang_list_from_java_util_stream() {
+        List<String> list = ImmutableCollectionsTasks.toJavaslangList(Stream.of("a", "b", "c"));
+        assertTrue(list, List.of("a", "b", "c")::eq, "expected javaslang list of a b c");
     }
 
     @Test
