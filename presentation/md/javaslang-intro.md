@@ -40,6 +40,12 @@ HashSet.fill(5, () -> new Random().nextInt());
 ~~~
 
 
+## performance
+
+converting has a cost<br />
+(java collections vs javaslang collection)
+
+
 ## javaslang.collection.Seq
 - - -
 ![javaslang-collections-seq](img/collections-seq.png "Javaslang collections seq")
