@@ -4,8 +4,7 @@ import javaslang.control.Either;
 import javaslang.control.Option;
 import javaslang.control.Try;
 import no.finn.workshop.javaslang.things.Triangle;
-
-import static javaslang.API.For;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class ForComprehensionTasks {
 
@@ -14,7 +13,7 @@ public class ForComprehensionTasks {
     // // (http://static.javadoc.io/io.javaslang/javaslang/2.0.4/index.html?javaslang/API.html)
     // to retrieve the concatenated String-value from a Success<String> (Try<String>) Right<String> (Either<Integer, String>) and Some<String> (Option<String>)
     public static String concatenate(Try<String> aTry, Either<Integer, String> anEither, Option<String> anOption) {
-        return For(aTry, anEither, anOption).yield((t, e, o) -> t + e + o).mkString();
+        throw new NotImplementedException();
     }
 
 
@@ -26,13 +25,7 @@ public class ForComprehensionTasks {
     // remember to put pythagoras in there somewhere
     // (c is always the hypotenus)
     public static Iterable<Triangle> combinations(Iterable<Double> a, Iterable<Double> b, Iterable<Double> c) {
-        return For(a, b, c)
-                .yield(Triangle::new)
-                .filter(t -> t.a() > 0)
-                .filter(t -> t.b() > 0)
-                .filter(t -> t.c() > 0)
-                .filter(t -> new Double(Math.pow(t.a(), 2) + Math.pow(t.b(), 2)).equals(Math.pow(t.c(), 2)))
-                .filter(t -> t.circumference() <= 25);
+        throw new NotImplementedException();
     }
 
 

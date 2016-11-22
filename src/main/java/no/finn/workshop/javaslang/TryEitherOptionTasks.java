@@ -8,22 +8,23 @@ import javaslang.control.Either;
 import javaslang.control.Option;
 import javaslang.control.Try;
 import no.finn.workshop.javaslang.things.PersonServiceImpl;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class TryEitherOptionTasks {
 
     //Create an Either.Left of an empty Option<String>
     public static Either<Option<String>, Option<Integer>> weirdEither() {
-        return Either.left(Option.none());
+        throw new NotImplementedException();
     }
 
     //Create a Success (Try) of type Option(4) (Option<Integer>)
     public static Try<Option<Integer>> maybeIntegerAttempt() {
-        return Try.success(Option.of(4));
+        throw new NotImplementedException();
     }
 
     //Transform a Try to an Option that is Present on Success and absent on Failure
     public static <A> Option<A> toOption(Try<A> tryy) {
-        return tryy.toOption();
+        throw new NotImplementedException();
     }
 
     //From a List of personId, use a new PersonService() to return a list of corresponding Addresses (a String)
@@ -31,27 +32,22 @@ public class TryEitherOptionTasks {
     public static List<String> getAddresses(List<Long> personIds) {
         PersonServiceImpl personService = new PersonServiceImpl();
 
-        return personIds.map(personService::getPerson)
-                .map(e ->
-                        e.fold(s -> "",
-                        o -> o.map(personService::getAddress).getOrElse(() -> "")));
+        throw new NotImplementedException();
     }
 
     // apply two unsafe functions and return the Try of the result (first apply seed to unsafeFunction1, then apply result to unsafeFunction2)
     public static Try<String> combineUnsafeFunctions(Function<Integer, Integer> unsafeFunction1, Function<Integer, String> unsafeFunction2, Integer seed) {
-        return Try.of(() -> unsafeFunction1.apply(seed))
-                .map(unsafeFunction2);
+        throw new NotImplementedException();
     }
 
     // Do the exact same thing, but now use flatMap() if you used map() earlier (or vice versa)
     public static Try<String> combineUnsafeFunctions2(Function<Integer, Integer> unsafeFunction1, Function<Integer, String> unsafeFunction2, Integer seed) {
-        return Try.of(() -> unsafeFunction1.apply(seed))
-                .flatMap(i -> Try.of(() -> unsafeFunction2.apply(i)));
+        throw new NotImplementedException();
     }
 
     //Given a bunch of tries, construct a Try of a Seq (javaslang sequence) that is a success if the whole bunch is a success,
     // or short-circuits to a Failure if one or more in the bunch is a Failure
     public static <A> Try<Seq<A>> superTry(List<Try<? extends A>> tries) {
-        return Try.sequence(tries);
+        throw new NotImplementedException();
     }
 }

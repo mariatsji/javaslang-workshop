@@ -3,6 +3,7 @@ package no.finn.workshop.javaslang;
 import javaslang.collection.List;
 import javaslang.control.Validation;
 import no.finn.workshop.javaslang.things.Ad;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class ValidationTasks {
 
@@ -11,7 +12,7 @@ public class ValidationTasks {
     // return a Validation object of type <List<String>> (errors) or a valid Ad object
     // do this by comining the Validation-objects from the private hejlper methods used on the input parameters
     public static Validation<List<String>, Ad> validateAd(Long adId, String text, Long userId) {
-        return Validation.combine(positive(adId), nonEmpty(text), positive(userId)).ap(Ad::new);
+        throw new NotImplementedException();
     }
 
     // use this on adId and userId

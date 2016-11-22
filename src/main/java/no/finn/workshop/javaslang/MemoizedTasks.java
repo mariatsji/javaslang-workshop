@@ -11,7 +11,7 @@ public class MemoizedTasks {
     // this is called Memoization
     // modify this method to speed it up, using the concept of memoization
     public static Long checkIfPrimeAWholeLot(Long l) {
-        Function1<Long, Boolean> primeFunction = isPrimeFunction().memoized(); //modify only this line
+        Function1<Long, Boolean> primeFunction = isPrimeFunction(); //modify only this line
         Stream.rangeClosed(0, 10).forEach(i -> primeFunction.apply(l));
         return l;
     }
