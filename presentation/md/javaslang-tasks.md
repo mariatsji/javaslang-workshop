@@ -1,5 +1,6 @@
 ## http://docs.javaslang.io
 ~~~
+git clone https://github.com/mariatsji/javaslang-workshop
 cd presentation && python -m SimpleHTTPServer 3000
 ~~~
 

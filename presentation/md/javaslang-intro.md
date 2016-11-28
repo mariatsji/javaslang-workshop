@@ -1,4 +1,4 @@
-## Javaslang
+![javaslang-logo](img/javaslang-logo.png "Javaslang logo")
 
 
 ## FP in pure Java
