@@ -10,6 +10,10 @@ public class LambdaAssert {
     public static <X> void assertTrue(X parameter, Function<X, Boolean> assertion, String errorMsg) {
         assert assertion.apply(parameter) : errorMsg;
     }
+    
+    public static <X> void assertFalse(X parameter, Function<X, Boolean> assertion, String errorMsg) {
+        assert !assertion.apply(parameter) : errorMsg;
+    }    
 
     public static <X> void assertEquality(X expected, X actual, BiFunction<X,X,Boolean> equalityPredicate, String errorMsg) {
         assert equalityPredicate.apply(expected, actual) : String.format("[%s] : " + NEWLINE +

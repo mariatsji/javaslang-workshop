@@ -18,6 +18,7 @@ import org.junit.Test;
 
 import static no.finn.workshop.javaslang.LambdaAssert.assertEquality;
 import static no.finn.workshop.javaslang.LambdaAssert.assertTrue;
+import static no.finn.workshop.javaslang.LambdaAssert.assertFalse;
 
 public class ImmutableCollectionsTasksTest {
 
@@ -67,8 +68,11 @@ public class ImmutableCollectionsTasksTest {
     public void should_check_that_list_of_strings_with_different_caseing_corresponds() {
         List<String> first = List.of("a", "b", "C", "D");
         List<String> second = List.of("A", "B", "c", "d");
+        List<String> third = List.of("s", "d", "e", "f");
         assertTrue(ImmutableCollectionsTasks.checkSameStringsIgnoreCase(first, second), b -> b,
                 "checkSameStringsIgnoreCase should return true when two lists contain equal Strings whith casing ignored");
+        assertFalse(ImmutableCollectionsTasks.checkSameStringsIgnoreCase(first, third), b -> b,
+                "checkSameStringsIgnoreCase should return false when two lists does not contain equal Strings");
     }
 
     @Test
