@@ -70,14 +70,14 @@ The interface of Functions in javaslang
 ## Reverse
 
 (*a*,*b*) ➔ *c*<br />
-➔<br />
+=><br />
 (*b*,*a*) ➔ *c*
 
 
 ## Currying I
 
 (*a*, *b*) ➔ *c* <br />
-➔<br />
+=><br />
 *a* ➔ (*b* ➔ *c*)
 
 
@@ -103,8 +103,8 @@ The interface of Functions in javaslang
 ## Composition I
 
 (*b* ➔ *c*) *.* (*a* ➔ *b*)<br />
-➔<br />
-(*a* ➔ *b* ➔ *c*)
+=> <br />
+(*a* ➔ *c*)
 
 
 ## Composition II
