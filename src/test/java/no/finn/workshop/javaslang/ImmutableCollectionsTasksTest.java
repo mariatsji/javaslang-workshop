@@ -65,7 +65,7 @@ public class ImmutableCollectionsTasksTest {
     }
 
     @Test
-    public void should_check_that_list_of_strings_with_different_caseing_corresponds() {
+    public void should_check_that_list_of_strings_corresponds_regardless_of_casing() {
         List<String> first = List.of("a", "b", "C", "D");
         List<String> second = List.of("A", "B", "c", "d");
         List<String> third = List.of("s", "d", "e", "f");

@@ -7,6 +7,12 @@ import javaslang.control.Option;
 
 public class PersonServiceImpl {
 
+    /*
+     * This method returns
+     * - a Left<String> on failure
+     * - a Right containing an empty Option when successful service invocation, but with no person found for that personId
+     * - a Right Option<Person> (present) on successful and existing personId
+     */
     public Either<String, Option<Person>> getPerson(Long personId) {
         if(personId < 0L) {
             return Either.left("Invalid personId");
