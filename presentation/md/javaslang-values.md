@@ -79,7 +79,10 @@ System.out.println(i1.eq(i2));
 ~~~java
 Future<Character> val1 = Future.of(() -> 'a');
 List<Character> val2 = List.of('b', 'c');
-For(val1, val2)
-        .yield((c1, c2) -> new String(new char[]{c1, c2}))
-        .forEach(System.out::println);
+Iterator<String> yield =
+        For(val1, val2)
+            .yield((c1, c2) -> new String(new char[]{c1, c2}));
+
+List<String> strings = List.ofAll(yield);
+strings.forEach(System.out::println);
 ~~~

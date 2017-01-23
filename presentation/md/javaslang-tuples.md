@@ -6,8 +6,8 @@ What if you want to return two things?
 ## Javaslang Tuple
 
 ~~~java
-    private Tuple2<String, Integer> filesInDir(String fileExtension) {
-        Integer fileCount = findAllIn(currDir(), fileExtension).length();
+    Tuple2<String, Integer> filesInDir(String dir, String fileExtension) {
+        Integer fileCount = getCount(dir, fileExtension).length();
         return Tuple.of(currDir() + fileExtension, fileCount);
     }
     
