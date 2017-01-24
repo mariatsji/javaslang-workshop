@@ -95,7 +95,7 @@ public class ImmutableCollectionsTasks {
         throw new NotImplementedException();
     }
 
-    // Should return a Function1 from Value V to Key K
+    // Should return a Function1 from Key K to Value V
     public static <K,V> Function1<K,V> toFunction(javaslang.collection.HashMap<K,V> map) {
         throw new NotImplementedException();
     }
