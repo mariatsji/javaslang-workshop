@@ -65,6 +65,7 @@ public class ImmutableCollectionsTasks {
     //Make this function return a Tuple2(a,b+10) (keep first element (String) and add 10 to second element (Integer))
     public static Tuple2<String, Integer> transformTuple(Tuple2<String, Integer> theTuple) {
         return theTuple.map((a, b) -> Tuple.of(a, b + 10));
+        //or return theTuple.map2(b -> b + 10);
     }
 
     //create a javaslang HashMap
@@ -97,7 +98,7 @@ public class ImmutableCollectionsTasks {
         return set;
     }
 
-    // Should return a Function1 from Value V to Key K
+    // Should return a Function1 from Key K to Value V
     public static <K,V> Function1<K,V> toFunction(javaslang.collection.HashMap<K,V> map) {
         return map;
     }

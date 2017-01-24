@@ -7,7 +7,7 @@ import javaslang.collection.List;
 public class FoldsTasks {
 
     public static Double sumAListUsingFold(List<Double> list) {
-        return list.foldRight(0d, Double::sum);
+        return list.fold(0d, Double::sum);
     }
 
     //Reverse a list using foldRight

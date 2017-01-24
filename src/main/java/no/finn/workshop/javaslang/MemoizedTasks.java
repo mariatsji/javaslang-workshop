@@ -23,7 +23,7 @@ public class MemoizedTasks {
                 Thread.sleep(2);
             } catch (Exception ignore) {
             }
-            return i % 2 == 1 || List.rangeClosed(2, ((i / 2) + 1)).find(x -> i % x == 0).isEmpty();
+            return i % 2 == 1 && List.rangeClosed(2, ((i / 2) + 1)).find(x -> i % x == 0).isEmpty();
         };
     }
 

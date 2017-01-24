@@ -45,7 +45,7 @@ public class HigherOrderFunctionsTasksTest {
     public void should_derive_a_poly_function() {
         PolyFunction polyFunction = new PolyFunction(HashMap.of(2, 3.0, 1, 2.0, 0, 1.0));
 
-        Function<PolyFunction, PolyFunction> derive = HigherOrderFunctionsTasks.derive(polyFunction);
+        Function<PolyFunction, PolyFunction> derive = HigherOrderFunctionsTasks.derive();
 
         PolyFunction derived = derive.apply(polyFunction);
 

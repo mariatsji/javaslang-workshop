@@ -9,7 +9,8 @@ public class ValidationTasks {
     // The Validation object looks like an Either, but does not short-circut on first left.
     // (This is because a Validation is not a Monad, but an Applicative Functor)
     // return a Validation object of type <List<String>> (errors) or a valid Ad object
-    // do this by comining the Validation-objects from the private hejlper methods used on the input parameters
+    // do this by combining the Validation-objects from the private hejlper methods used on the input parameters
+    // The order of elements in the combine() is significant :)
     public static Validation<List<String>, Ad> validateAd(Long adId, String text, Long userId) {
         return Validation.combine(positive(adId), nonEmpty(text), positive(userId)).ap(Ad::new);
     }

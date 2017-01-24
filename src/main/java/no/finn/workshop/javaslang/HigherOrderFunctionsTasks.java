@@ -34,10 +34,11 @@ public class HigherOrderFunctionsTasks {
     // new PolyFunction(HashMap.of(2, 3.0, 1, 2.0, 0, 1.0));
     // Note that you are returning a Function here, (not just the derived PolyFunction)
     // This can be achieved by wrapping it all in a lambda
-    public static Function<PolyFunction, PolyFunction> derive(PolyFunction p) {
+    public static Function<PolyFunction, PolyFunction> derive() {
         return po -> new PolyFunction(
-                p.poly.map(
-                        t -> Tuple.of(t._1 > 0 ? t._1 - 1 : 0, t._2 * t._1)));
+                po.poly
+                        .filter(t -> t._1 > 0)
+                        .map(t -> Tuple.of(t._1 - 1, t._2 * t._1)));
     }
 
 }
